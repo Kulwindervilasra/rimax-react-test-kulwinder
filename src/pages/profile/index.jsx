@@ -1,5 +1,4 @@
 import React from "react";
-import { Avatar } from "@material-ui/core";
 import { useUserProfile } from "../../common/apiHooks";
 import { useForm } from "react-hook-form";
 import { apiCallPatch } from "../../common/api";
@@ -13,8 +12,8 @@ const Profile = () => {
 
   return (
     <div className="col-4 m-3 mx-auto">
-      <div class="col-sm text-center">
-        <img className="rounded" alt="Profile Image" src={profile?.avatar} />
+      <div className="col-sm text-center">
+        <img className="rounded" alt="Profile" src={profile?.avatar} />
       </div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="form-group">
@@ -23,6 +22,7 @@ const Profile = () => {
             className="form-control"
             defaultValue={profile?.first_name}
             name="first_name"
+            placeholder="First Name"
             ref={register({ required: true })}
           />
 
@@ -36,6 +36,7 @@ const Profile = () => {
             className="form-control"
             defaultValue={profile?.last_name}
             name="last_name"
+            placeholder="Last Name"
             ref={register({ required: true })}
           />
           {errors?.last_name && (
@@ -48,8 +49,10 @@ const Profile = () => {
             className="form-control"
             defaultValue={profile?.email}
             name="email"
+            placeholder="Email"
             ref={register({
               required: true,
+              //eslint-disable-next-line
               pattern: /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i,
             })}
           />

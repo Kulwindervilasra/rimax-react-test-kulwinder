@@ -13,6 +13,6 @@ export const useUserProfile = () => {
       setData(apiData);
     };
     fetchData();
-  }, []);
+  }, [dispatch]);
   return data;
 };

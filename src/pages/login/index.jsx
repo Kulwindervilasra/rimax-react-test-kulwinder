@@ -23,17 +23,19 @@ const LoginForm = () => {
 
   return (
     <div className="col-4 m-3 mx-auto">
-      <h2 className="text-center">Login</h2>
+      <h2 className="text-center">Login-Form</h2>
 
       <form className="form" onSubmit={handleSubmit(onSubmit)}>
         <div className="form-group">
-          <label for="email">Email</label>
+          <label htmlFor="email">Email</label>
           <input
             className="form-control"
             id="email"
+            placeholder="Email"
             name="email"
             ref={register({
               required: true,
+              //eslint-disable-next-line
               pattern: /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i,
             })}
           />
@@ -45,10 +47,11 @@ const LoginForm = () => {
           )}
         </div>
         <div className="form-group">
-          <label for="password">Password</label>
+          <label htmlFor="password">Password</label>
 
           <input
             className="form-control"
+            placeholder="Password"
             id="password"
             name="password"
             ref={register({ required: true })}
@@ -58,7 +61,7 @@ const LoginForm = () => {
           )}
         </div>
         <div className="mt-5 text-center">
-          <input className="btn btn-primary" type="submit" value="Login" />
+          <input className="btn btn-primary" type="submit" value="Signin" />
         </div>
       </form>
     </div>

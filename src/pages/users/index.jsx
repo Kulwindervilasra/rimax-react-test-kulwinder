@@ -30,14 +30,17 @@ const Users = () => {
   const [inputValue, setInputValue] = useState("");
   useEffect(() => {
     getUsers();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
     handleSortList();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sortOrder]);
 
   useEffect(() => {
     handleSearch();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [search]);
 
   async function getUsers() {
@@ -140,7 +143,7 @@ const Users = () => {
               return (
                 <TableRow key={data.id}>
                   <TableCell>
-                    <img src={data.avatar} />
+                    <img alt="url" src={data.avatar} />
                   </TableCell>
                   <TableCell>{data.first_name}</TableCell>
                   <TableCell>{data.last_name}</TableCell>
